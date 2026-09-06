@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Google Calendar Assistant — Case Study · Takieddine Drici</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,440;0,9..144,560;1,9..144,440&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div><span class="nav-name">Takieddine Drici</span><span class="nav-role">AI Automation Engineer</span></div>
+    <div class="nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#stack">Stack</a>
+      <a href="#usecase">Use case</a>
+      <a href="#cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-line"><span class="dot"></span>Independent project · AI automation</div>
+      <h1>AI Google Calendar Assistant</h1>
+      <p class="sub">Natural-language scheduling, automated.</p>
+      <p class="desc">An AI-powered scheduling assistant that turns natural-language requests into automated Google Calendar actions — built end to end with an LLM agent, n8n orchestration, and the Google Calendar API.</p>
+      <div class="hero-tags">
+        <span>n8n</span><span>OpenAI API</span><span>Google Calendar API</span><span>Webhooks</span><span>AI Agent</span>
+      </div>
+    </div>
+    <div>
+      <svg class="flow-svg" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="flow-path" d="M60,60 C140,60 140,60 210,90"/>
+        <path class="flow-dash" d="M60,60 C140,60 140,60 210,90"/>
+        <path class="flow-path" d="M210,90 C280,120 280,120 350,150"/>
+        <path class="flow-dash" d="M210,90 C280,120 280,120 350,150" style="animation-delay:-1.1s"/>
+        <path class="flow-path" d="M350,150 C280,180 280,180 210,210"/>
+        <path class="flow-dash" d="M350,150 C280,180 280,180 210,210" style="animation-delay:-2.2s"/>
+
+        <circle class="flow-node-circle" cx="60" cy="60" r="30"/>
+        <text x="60" y="65" text-anchor="middle" class="flow-node-label">User</text>
+
+        <circle class="flow-node-circle active" cx="210" cy="90" r="32"/>
+        <text x="210" y="88" text-anchor="middle" class="flow-node-label">AI</text>
+        <text x="210" y="102" text-anchor="middle" class="flow-node-label" style="font-size:10.5px;">OpenAI</text>
+
+        <circle class="flow-node-circle" cx="350" cy="150" r="30"/>
+        <text x="350" y="148" text-anchor="middle" class="flow-node-label">n8n</text>
+        <text x="350" y="162" text-anchor="middle" class="flow-node-label" style="font-size:10.5px;">workflow</text>
+
+        <circle class="flow-node-circle" cx="210" cy="210" r="32"/>
+        <text x="210" y="208" text-anchor="middle" class="flow-node-label">Calendar</text>
+        <text x="210" y="222" text-anchor="middle" class="flow-node-label" style="font-size:10.5px;">Google API</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">The problem</div>
+      <div>
+        <h2>Booking a meeting is simple. Doing it manually, every time, isn't.</h2>
+        <p class="text-col" style="margin-top:16px; color:var(--ink-soft); font-size:16px;">Creating a single calendar event usually means the same repetitive sequence of clicks — regardless of how small the request is.</p>
+      </div>
+    </div>
+    <div class="problem-row">
+      <div class="problem-step">Open calendar</div>
+      <div class="problem-step">Find the date</div>
+      <div class="problem-step">Enter event details</div>
+      <div class="problem-step">Set the time</div>
+      <div class="problem-step">Create event</div>
+      <div class="problem-step">Confirm the action</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IDEA ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">The idea</div>
+      <div>
+        <h2>Replace the manual steps with a single sentence.</h2>
+      </div>
+    </div>
+    <div class="compare">
+      <div class="before">
+        <div class="compare-label">Before</div>
+        <ul class="before-steps">
+          <li>Open calendar</li>
+          <li>Find date</li>
+          <li>Enter details</li>
+          <li>Create event</li>
+        </ul>
+      </div>
+      <div class="after">
+        <div class="compare-label">After</div>
+        <p class="after-quote">"Schedule a meeting with Ahmed tomorrow at 3&nbsp;PM."</p>
+        <div class="after-flow">
+          <span class="node">AI</span><span class="arrow">→</span>
+          <span class="node">Automation</span><span class="arrow">→</span>
+          <span class="node">Calendar event</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="dark-section" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">How it works</div>
+      <div>
+        <h2>From a sentence to a scheduled event.</h2>
+      </div>
+    </div>
+    <div class="steps-flow">
+      <div class="step-row">
+        <div class="step-num">01</div>
+        <div class="step-line"></div>
+        <div class="step-body">
+          <h3>User</h3>
+          <p>The person types or speaks a request in plain language — no form, no fields.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">02</div>
+        <div class="step-line"></div>
+        <div class="step-body">
+          <h3>Natural-language request</h3>
+          <p>The request is captured as-is: "Schedule a meeting with Ahmed tomorrow at 3 PM."</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">03</div>
+        <div class="step-line"></div>
+        <div class="step-body">
+          <h3>AI / OpenAI</h3>
+          <p>An LLM agent reads the request and interprets what's actually being asked.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">04</div>
+        <div class="step-line"></div>
+        <div class="step-body">
+          <h3>Intent and data extraction</h3>
+          <p>The model pulls out the structured pieces: person, date, time, and event type.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">05</div>
+        <div class="step-line"></div>
+        <div class="step-body">
+          <h3>n8n workflow</h3>
+          <p>n8n receives the structured data and orchestrates the next steps and API calls.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">06</div>
+        <div class="step-line"></div>
+        <div class="step-body">
+          <h3>Google Calendar API</h3>
+          <p>The workflow calls the Calendar API to create or update the event.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">07</div>
+        <div class="step-body">
+          <h3>Confirmation</h3>
+          <p>The assistant confirms back to the user that the event was created.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECH STACK ===================== -->
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Tech stack</div>
+      <div><h2>Built on tools that connect to almost anything.</h2></div>
+    </div>
+    <div class="stack-list">
+      <div class="stack-row"><div class="name">n8n</div><div class="desc">Orchestrates the entire workflow and connects every service in the chain.</div></div>
+      <div class="stack-row"><div class="name">OpenAI API</div><div class="desc">Powers the language model that understands and interprets each request.</div></div>
+      <div class="stack-row"><div class="name">Google Calendar API</div><div class="desc">Creates, reads, and manages the actual calendar events.</div></div>
+      <div class="stack-row"><div class="name">REST APIs</div><div class="desc">Standard interface used to move data between each service.</div></div>
+      <div class="stack-row"><div class="name">Webhooks</div><div class="desc">Trigger the workflow the moment a new request comes in.</div></div>
+      <div class="stack-row"><div class="name">AI Agent</div><div class="desc">The reasoning layer that decides what action a request requires.</div></div>
+      <div class="stack-row"><div class="name">Workflow automation</div><div class="desc">Ties every step together into one continuous, hands-off process.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Key features</div>
+      <div><h2>What the assistant actually does.</h2></div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature"><h3>Natural-language scheduling</h3><p>Describe a meeting the way you'd describe it to a person.</p></div>
+      <div class="feature"><h3>AI intent understanding</h3><p>The model figures out what kind of action is being requested.</p></div>
+      <div class="feature"><h3>Date and time extraction</h3><p>Relative expressions like "tomorrow" are resolved to real dates.</p></div>
+      <div class="feature"><h3>Automated calendar actions</h3><p>Events are created and managed without manual input.</p></div>
+      <div class="feature"><h3>API integration</h3><p>AI output is passed cleanly into a real, working calendar system.</p></div>
+      <div class="feature"><h3>Automatic confirmation</h3><p>The user is told exactly what was scheduled, without checking manually.</p></div>
+      <div class="feature"><h3>Workflow orchestration</h3><p>Every step — from request to confirmation — runs as one pipeline.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECHNICAL BREAKDOWN ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Technical breakdown</div>
+      <div class="breakdown text-col">
+        <p>n8n acts as the orchestration layer for the whole assistant. When a request comes in, the AI agent interprets it and converts the free-text sentence into structured information — who, when, and what.</p>
+        <div class="pullquote">The workflow then calls the Google Calendar API to perform the requested action, and returns a confirmation to the user.</div>
+        <p>Because the logic is split into discrete steps — understanding, extraction, execution, confirmation — each part of the pipeline can be tested, replaced, or extended on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== USE CASE ===================== -->
+<section id="usecase">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Use case</div>
+      <div><h2>What a request looks like, end to end.</h2></div>
+    </div>
+    <div class="chat-mock">
+      <div class="bubble user">Schedule a project meeting with Ahmed tomorrow at 3 PM.</div>
+      <ul class="recognize-list">
+        <li>Identifies the attendee — Ahmed</li>
+        <li>Resolves the date — tomorrow</li>
+        <li>Resolves the time — 3:00 PM</li>
+        <li>Creates the calendar event</li>
+      </ul>
+      <div class="bubble system">Done — your meeting with Ahmed is scheduled for tomorrow at 3 PM.</div>
+    </div>
+    <p class="disclaimer-note">Illustrative example — not a real client interaction.</p>
+  </div>
+</section>
+
+<!-- ===================== ARCHITECTURE ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Architecture</div>
+      <div><h2>How the pieces connect.</h2></div>
+    </div>
+    <div class="arch-wrap">
+      <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
+        <path class="flow-path" d="M100,130 L300,130"/>
+        <path class="flow-dash" d="M100,130 L300,130"/>
+        <path class="flow-path" d="M400,130 L600,80"/>
+        <path class="flow-dash" d="M400,130 L600,80" style="animation-delay:-1s"/>
+        <path class="flow-path" d="M400,130 L600,130"/>
+        <path class="flow-dash" d="M400,130 L600,130" style="animation-delay:-1.6s"/>
+        <path class="flow-path" d="M400,150 C450,210 650,210 700,145"/>
+        <path class="flow-dash" d="M400,150 C450,210 650,210 700,145" style="animation-delay:-2.4s"/>
+
+        <circle class="flow-node-circle" cx="60" cy="130" r="34"/>
+        <text x="60" y="135" text-anchor="middle" class="flow-node-label">User</text>
+
+        <circle class="flow-node-circle active" cx="350" cy="130" r="40"/>
+        <text x="350" y="126" text-anchor="middle" class="flow-node-label">AI Model</text>
+        <text x="350" y="140" text-anchor="middle" class="flow-node-label" style="font-size:10.5px;">OpenAI</text>
+
+        <circle class="flow-node-circle" cx="640" cy="80" r="34"/>
+        <text x="640" y="85" text-anchor="middle" class="flow-node-label">n8n</text>
+
+        <circle class="flow-node-circle" cx="640" cy="150" r="34"/>
+        <text x="640" y="148" text-anchor="middle" class="flow-node-label">Calendar</text>
+        <text x="640" y="161" text-anchor="middle" class="flow-node-label" style="font-size:10.5px;">API</text>
+
+        <text x="60" y="185" text-anchor="middle" class="flow-node-label" style="font-size:11px; fill:var(--ink-faint);">sends request</text>
+        <text x="500" y="70" text-anchor="middle" class="flow-node-label" style="font-size:11px; fill:var(--ink-faint);">orchestrates</text>
+        <text x="500" y="195" text-anchor="middle" class="flow-node-label" style="font-size:11px; fill:var(--ink-faint);">confirmation</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VALUE ===================== -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-kicker">Why it matters</div>
+      <div><h2>The value, without inflated numbers.</h2></div>
+    </div>
+    <ul class="value-list">
+      <li>Reduces repetitive, manual calendar actions</li>
+      <li>Makes scheduling feel closer to a conversation than a form</li>
+      <li>Connects an AI agent to a real, everyday productivity tool</li>
+      <li>Demonstrates a practical, working AI automation system</li>
+      <li>Forms a foundation that can grow into a broader business assistant</li>
+    </ul>
+
+    <div class="section-head" style="margin-top:96px;">
+      <div class="section-kicker">What I built</div>
+      <div>
+        <p style="font-size:17px; color:var(--ink-soft); max-width:560px;">Designed and built the AI workflow, automation logic, API integration, and scheduling flow — end to end, as an independent project.</p>
+        <div class="built-block">
+          <img class="built-photo" src="profile.jpg" alt="Takieddine Drici">
+          <div>
+            <div class="built-name">Takieddine Drici</div>
+            <div class="built-role">AI Automation Engineer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta-section" id="cta">
+  <div class="wrap">
+    <h2>Turn repetitive workflows into automated systems.</h2>
+    <div class="small">AI Agents · n8n Automation · API Integrations</div>
+    <a class="cta-btn" href="mailto:hello@example.com">Get in touch</a>
+  </div>
+</section>
+
+<footer>© Takieddine Drici — AI Automation Engineer</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
