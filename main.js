@@ -1,4 +1,4 @@
-// AI Google Calendar Assistant — portfolio interactions
+// AI Google Calendar Assistant: portfolio interactions
 document.addEventListener('DOMContentLoaded', () => {
   // Smoothly reveal major sections as they enter the viewport.
   const sections = document.querySelectorAll('section');
